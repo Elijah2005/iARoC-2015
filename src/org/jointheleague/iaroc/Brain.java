@@ -23,21 +23,26 @@ public class Brain extends IRobotCreateAdapter {
     public void initialize() throws ConnectionLostException {
         dashboard.log("Hello! I'm a Clever Robot!");
         //what would you like me to do, Clever Human?
-        driveDirect(500, 321);
+        driveDirect(500, 221);
 
 
     }
 
     /* This method is called repeatedly. */
     public void loop() throws ConnectionLostException {
-readSensors(SENSORS_BUMPS_AND_WHEEL_DROPS);
-if(isBumpLeft()){
-    driveDirect(-250, -50);
-    SystemClock.sleep(750);
+//readSensors(SENSORS_BUMPS_AND_WHEEL_DROPS);
+//if(isBumpLeft()){
+        // driveDirect(-250, -50);
+        //SystemClock.sleep(750);
 
-    driveDirect(500, 321);
-    SystemClock.sleep(450);
-    driveDirect(500, 321);
-}
+        //driveDirect(500, 221);
+        //SystemClock.sleep(450);
+        //driveDirect(500, 221);
+
+        readSensors(6);
+        int getInfared = getInfraredByte();
+        driveDirect(300, -300);
+
+        dashboard.log(" " + getInfared);
     }
 }
